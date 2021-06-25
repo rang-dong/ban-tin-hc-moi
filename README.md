@@ -771,3 +771,13 @@ Thay đổi trạng thái kích hoạt của rule
   }
 }
 ```
+4. Bản tin HC kết nối Cloud
+```json
+{
+  "CMD":"HC_CONNECT_TO_CLOUD",
+  "DATA":{
+    "END_USER_PROFILEID":10039,
+    "REFRESH_TOKEN":"ABCGKGHLKHFSKLHDF"
+  }
+}
+```
