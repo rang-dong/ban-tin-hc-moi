@@ -776,7 +776,7 @@ Thay đổi trạng thái kích hoạt của rule
 {
   "CMD":"HC_CONNECT_TO_CLOUD",
   "DATA":{
-    "END_USER_PROFILEID":10039,
+    "END_USER_PROFILE_ID":10039,
     "REFRESH_TOKEN":"ABCGKGHLKHFSKLHDF"
   }
 }
