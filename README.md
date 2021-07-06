@@ -43,8 +43,8 @@ Giống bản tin gửi đi nhưng được gửi vào topic phản hồi
 ```
 2. Giải thích
 Điều khiển nhóm có ID=b717f8d8-6f18-43c0-ae46-69c32998f653, thiết lập giá trị thuộc tính ID=0 thành 1 cho tất cả các thiết bị trong nhóm
-3. Json phản hồi
-Giống bản tin gửi đi nhưng được gửi vào topic phản hồi
+3. Json phản hồi:
+Là bản tin phản hồi của điều khiển device
 
 ## ĐIỀU KHIỂN SCENE
 1. Json mẫu
@@ -90,19 +90,32 @@ Kích hoạt SCENE có ID=aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2
       }
 }
 ```
-2. Giải thích
+2. Giải thích:
 Tạo một nhóm mới gồm 2 thiết bị
+Nếu không có thiết bị thì trường sẽ để trống: "DEVICE":[]
 3. Json phản hồi
 ```json
 {
       "CMD": "GROUP",
-      "TYPE": "REMOVE_DEVICE",
+      "TYPE": "CREATE",
+      "DATA": {
+           "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+           "CATEGORY_ID": 12,
+           "NAME": "abc"
+           "STATUS": "SUCCESS"
+      }
+}
+
+{
+      "CMD": "GROUP",
+      "TYPE": "ADD_DEVICE",
       "DATA": {
            "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
            "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653",
            "STATUS": "SUCCESS"
       }
 }
+
 ```
 ### Xóa device khỏi nhóm
 1. Json mẫu
@@ -154,7 +167,7 @@ Thêm 2 device vào group
 ```json
 {
      "CMD": "GROUP",
-     "TYPE": "DEVICE_RESPONSE",
+     "TYPE": "ADD_DEVICE",
      "DATA": {
           "GROUP_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
           "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653",
@@ -267,20 +280,30 @@ Xóa device trong mạng
     "DEVICES": [
       {
         "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+        "DEVICE_TYPE_ID":12001,
         "PROPERTIES": [
           {
             "ID": 0,
             "VALUE": 1
           }
         ]
-      }
-    ],
-    "GROUPS": [
+      },
       {
-        "GROUP_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+        "DEVICE_ID": "bb3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+        "DEVICE_TYPE_ID":14001,
         "PROPERTIES": [
           {
             "ID": 0,
+            "VALUE": 1
+          }
+        ]
+      },
+      {
+        "DEVICE_ID": "cc3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+        "DEVICE_TYPE_ID":14001,
+        "PROPERTIES": [
+          {
+            "ID": 7,
             "VALUE": 1
           }
         ]
@@ -321,6 +344,7 @@ Tạo scene với device và group tương ứng
     "DEVICES": [
       {
         "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+        "DEVICE_TYPE_ID":14001,
         "TYPE":"EDIT",
         "PROPERTIES": [
            {
@@ -331,23 +355,12 @@ Tạo scene với device và group tương ứng
       },
        {
         "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10f00",
+        "DEVICE_TYPE_ID":14001,
         "TYPE":"DEL",
         "PROPERTIES": [
            {
             "ID": 23,
             "VALUE": 6
-          }
-        ]
-      }
-    ],
-    "GROUPS": [
-      {
-        "GROUP_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-        "TYPE":"EDIT",
-        "PROPERTIES": [
-          {
-            "ID": 0,
-            "VALUE": 1
           }
         ]
       }
