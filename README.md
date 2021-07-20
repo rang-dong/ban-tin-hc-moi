@@ -614,21 +614,13 @@ Xóa cảnh đã gán cho nút nhấn của remote
     "HAS_TIMER": 1,
     "START_AT": "10:56:1",
     "END_AT": "11:1:15",
-    "EACH_DAY":["EACHMONDAY","EACHTUESDAY"],
+    "EACH_DAY": [
+      "EACHMONDAY",
+      "EACHTUESDAY"
+    ],
     "DEVICES": [
       {
         "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-        "PROPERTIES": [
-          {
-            "ID": 0,
-            "VALUE": 1
-          }
-        ]
-      }
-    ],
-    "GROUPS": [
-      {
-        "GROUP_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
         "PROPERTIES": [
           {
             "ID": 0,
@@ -651,13 +643,14 @@ Lưu ý: VD: tạo SCENE không có thời gian thì bỏ các trường START_A
 
 ```json
 {
-      "CMD": "EVENT_TRIGGER",
-      "TYPE": "CREATE",
-      "DATA": {
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-           "SCENE_UNICAST_ID":2,
-           "EVENT_TRIGGER_TYPE_ID": 1
-        }
+  "CMD": "EVENT_TRIGGER",
+  "TYPE": "CREATE",
+  "DATA": {
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+    "SCENE_UNICAST_ID": 2,
+    "EVENT_TRIGGER_TYPE_ID": 1,
+    "STATUS": "SUCCESS"
+  }
 }
 ```
 
@@ -677,37 +670,38 @@ Lưu ý: VD: tạo SCENE không có thời gian thì bỏ các trường START_A
     "HAS_TIMER": 1,
     "START_AT": "10:56:1",
     "END_AT": "11:1:15",
-    "EACH_DAY":["EACHMONDAY","EACHTUESDAY"],
+    "EACH_DAY": [
+      "EACHMONDAY",
+      "EACHTUESDAY"
+    ],
     "DEVICES": [
       {
         "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-        "TYPE":"EDIT",
+        "TYPE": "EDIT",
         "PROPERTIES": [
-           {
+          {
             "ID": 23,
             "VALUE": 6
           }
         ]
       },
-       {
+      {
         "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10f00",
-        "TYPE":"DEL",
+        "TYPE": "DEL",
         "PROPERTIES": [
-           {
+          {
             "ID": 23,
             "VALUE": 6
           }
         ]
-      }
-    ],
-    "GROUPS": [
+      },
       {
-        "GROUP_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-        "TYPE":"EDIT",
+        "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10f00",
+        "TYPE": "ADD",
         "PROPERTIES": [
           {
-            "ID": 0,
-            "VALUE": 1
+            "ID": 23,
+            "VALUE": 6
           }
         ]
       }
@@ -724,13 +718,14 @@ HC nhận được bản tin sửa EVEN TRIGGER theo các thông số người d
 
 ```json
 {
-      "CMD": "EVENT_TRIGGER",
-      "TYPE": "EDIT",
-      "DATA": {
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-           "GROUP_ID": "97ab44a3-e788-46a1-9c07-79f39d6be33f",
-           "EVENT_TRIGGER_TYPE_ID": 1
-        }
+  "CMD": "EVENT_TRIGGER",
+  "TYPE": "EDIT",
+  "DATA": {
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+    "SCENE_UNICAST_ID": 2,
+    "EVENT_TRIGGER_TYPE_ID": 1,
+    "STATUS": "SUCCESS"
+  }
 }
 ```
 
@@ -740,11 +735,12 @@ HC nhận được bản tin sửa EVEN TRIGGER theo các thông số người d
 
 ```json
 {
-      "CMD": "EVENT_TRIGGER",
-      "TYPE": "DELETE",
-      "DATA": {
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
-        }
+  "CMD": "EVENT_TRIGGER",
+  "TYPE": "DELETE",
+  "DATA": {
+    "EVENT_TRIGGER_TYPE_ID": 1,
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
+  }
 }
 ```
 
@@ -756,11 +752,14 @@ Xóa 1 EVEN TRIGGER với ID tương ứng
 
 ```json
 {
-      "CMD": "EVENT_TRIGGER",
-      "TYPE": "DELETE",
-      "DATA": {
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
-        }
+  "CMD": "EVENT_TRIGGER",
+  "TYPE": "DELETE",
+  "DATA": {
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+    "SCENE_UNICAST_ID": 2,
+    "EVENT_TRIGGER_TYPE_ID": 1,
+    "STATUS": "SUCCESS"
+  }
 }
 ```
 
@@ -898,10 +897,10 @@ Tạo rule với các thông số được cài đặt theo thông số người
 ```json
 {
   "CMD": "EVENT_TRIGGER",
-  "DATA":{
+  "DATA": {
     "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-    "GROUP_ID": "97ab44a3-e788-46a1-9c07-79f39d6be33f",
-    "STATUS": "SUCCESS"
+    "EVENT_TRIGGER_TYPE_ID": 2,
+    "STATUS":"SUCCESS"
   }
 }
 ```
@@ -1003,10 +1002,10 @@ Giống bản tin tạo rule nhưng type là "EDIT" và các thông số  tất 
 ```json
 {
   "CMD": "EVENT_TRIGGER",
-  "DATA":{
+  "DATA": {
     "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-    "GROUP_ID": "97ab44a3-e788-46a1-9c07-79f39d6be33f",
-    "STATUS": "SUCCESS"
+    "EVENT_TRIGGER_TYPE_ID": 2,
+    "STATUS":"SUCCESS"
   }
 }
 ```
@@ -1020,6 +1019,7 @@ Giống bản tin tạo rule nhưng type là "EDIT" và các thông số  tất 
   "CMD": "EVENT_TRIGGER",
   "TYPE": "DELETE",
   "DATA": {
+    "EVENT_TRIGGER_TYPE_ID": 1,
     "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2"
   }
 }
@@ -1034,9 +1034,10 @@ Xóa rule đã tạo với ID tương ứng.
 ```json
 {
   "CMD": "EVENT_TRIGGER",
-  "TYPE": "DELETE",
   "DATA": {
-    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2"
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+    "EVENT_TRIGGER_TYPE_ID": 2,
+    "STATUS":"SUCCESS"
   }
 }
 ```
@@ -1079,16 +1080,15 @@ Thay đổi trạng thái kích hoạt của rule
 
 ```json
 {
-   "CMD": "TYPE_DEVICE",
-   "DATA": 
-           {
-                   "DEVICE_UNICAST_ID": 123,
-                   "DEVICE_ID": "b717f8d86f1843c0ae4669c32998f653", 
-                   "DEVICE_KEY": "b717f8d86f1843c0ae4669c32998f653",
-                   "NET_KEY": "b717f8d86f1843c0ae4669c32998f653",
-                   "APP_KEY": "b717f8d86f1843c0ae4669c32998f653",
-                   "DEVICE_TYPE_ID":   23002                
-           }   
+  "CMD": "TYPE_DEVICE",
+  "DATA": {
+    "DEVICE_UNICAST_ID": 123,
+    "DEVICE_ID": "b717f8d86f1843c0ae4669c32998f653",
+    "DEVICE_KEY": "b717f8d86f1843c0ae4669c32998f653",
+    "NET_KEY": "b717f8d86f1843c0ae4669c32998f653",
+    "APP_KEY": "b717f8d86f1843c0ae4669c32998f653",
+    "DEVICE_TYPE_ID": 23002
+  }
 }
 ```
 
@@ -1096,21 +1096,21 @@ Thay đổi trạng thái kích hoạt của rule
 
 ```json
 {
-  "CMD":"PM_SENSOR",
-  "DATA":{
-    "DEVICE_ID":"b717f8d8-6f18-43c0-ae46-69c32998f653",
-    "TEMPERATURE_VALUE":30,
-     "HUMIDITY_VALUE":30
+  "CMD": "PM_SENSOR",
+  "DATA": {
+    "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653",
+    "TEMPERATURE_VALUE": 30,
+    "HUMIDITY_VALUE": 30
   }
 }
 
 {
-  "CMD":"PM_SENSOR",
-  "DATA":{
-    "DEVICE_ID":"b717f8d8-6f18-43c0-ae46-69c32998f653",
-    "PM2.5_VALUE":30,
-    "PM1_VALUE":30,
-    "PM10_VALUE":30
+  "CMD": "PM_SENSOR",
+  "DATA": {
+    "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653",
+    "PM2.5_VALUE": 30,
+    "PM1_VALUE": 30,
+    "PM10_VALUE": 30
   }
 }
 ```
