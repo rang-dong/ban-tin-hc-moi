@@ -9,18 +9,17 @@ Chưa có bản tin cài đặt cảnh cho các thiết bị :Màn hình, socket
 
 ```json
 {
-   "CMD": "DEVICE",
-   "DATA": 
-    {
-          "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653", 
-          "PROPERTIES":[
-                 { 
-                        "ID": 0,
-                        "VALUE": 1
-                } 
-         ]       
-    }    
-} 
+  "CMD": "DEVICE",
+  "DATA": {
+    "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653",
+    "PROPERTIES": [
+      {
+        "ID": 0,
+        "VALUE": 1
+      }
+    ]
+  }
+}
 ```
 
 2. Giải thích
@@ -36,17 +35,16 @@ Giống bản tin gửi đi nhưng được gửi vào topic phản hồi
 
 ```json
 {
-   "CMD": "GROUP",
-   "DATA": 
-    {
-          "GROUP_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653", 
-          "PROPERTIES":[
-                { 
-                    "ID": 0,
-                    "VALUE": 1
-                } 
-         ]       
-    }    
+  "CMD": "GROUP",
+  "DATA": {
+    "GROUP_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653",
+    "PROPERTIES": [
+      {
+        "ID": 0,
+        "VALUE": 1
+      }
+    ]
+  }
 }
 ```
 
@@ -60,17 +58,16 @@ Là bản tin phản hồi của điều khiển device:
 
 ```json
 {
-   "CMD": "DEVICE",
-   "DATA": 
-    {
-          "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653", 
-          "PROPERTIES":[
-                 { 
-                        "ID": 0,
-                        "VALUE": 1
-                } 
-         ]       
-    }    
+  "CMD": "DEVICE",
+  "DATA": {
+    "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653",
+    "PROPERTIES": [
+      {
+        "ID": 0,
+        "VALUE": 1
+      }
+    ]
+  }
 } 
 ```
 
@@ -80,11 +77,10 @@ Là bản tin phản hồi của điều khiển device:
 
 ```json
 {
-   "CMD": "EVENT_TRIGGER",
-   "DATA": 
-    {
-        "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
-    }    
+  "CMD": "EVENT_TRIGGER",
+  "DATA": {
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
+  }
 }
 ```
 
@@ -96,12 +92,11 @@ Kích hoạt SCENE có ID=aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2
 
 ```json
 {
-   "CMD": "EVENT_TRIGGER",
-   "DATA": 
-    {
-       "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-       "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653"
-    }    
+  "CMD": "EVENT_TRIGGER",
+  "DATA": {
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653"
+  }
 }
 ```
 
@@ -115,17 +110,17 @@ Kích hoạt SCENE có ID=aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2
 
 ```json
 {
-      "CMD": "GROUP",
-      "TYPE": "CREATE",
-      "DATA": {
-           "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "CATEGORY_ID": 12,
-           "NAME": "abc",
-           "DEVICES": [
-                "b717f8d8-6f18-43c0-ae46-69c32998f653",
-                "b717f8d8-6f18-43c0-ae46-69c32998f654"
-            ]
-      }
+  "CMD": "GROUP",
+  "TYPE": "CREATE",
+  "DATA": {
+    "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "CATEGORY_ID": 12,
+    "NAME": "abc",
+    "DEVICES": [
+      "b717f8d8-6f18-43c0-ae46-69c32998f653",
+      "b717f8d8-6f18-43c0-ae46-69c32998f654"
+    ]
+  }
 }
 ```
 
@@ -138,13 +133,16 @@ Nếu không có thiết bị thì trường sẽ để trống: "DEVICE":[]
 
 ```json
 {
-     "CMD": "GROUP",
-     "TYPE": "CREATE",
-     "DATA": {
-          "GROUP_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
-          "GROUP_UNICAST_ID":49152,
-          "STATUS": "SUCCESS"
-      }
+  "CMD": "GROUP",
+  "TYPE": "CREATE",
+  "DATA": {
+    "GROUP_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "DEVICE_ID": [
+      "b717f8d8-6f18-43c0-ae46-69c32998f653",
+      "b717f8d8-6f18-43c0-ae46-69c32998f654"
+    ],
+    "STATUS": "SUCCESS"
+  }
 }
 
 ```
@@ -155,15 +153,15 @@ Nếu không có thiết bị thì trường sẽ để trống: "DEVICE":[]
 
 ```json
 {
-      "CMD": "GROUP",
-      "TYPE": "REMOVE_DEVICE",
-      "DATA": {
-           "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-            "DEVICES": [
-                "b717f8d8-6f18-43c0-ae46-69c32998f653",
-                "b717f8d8-6f18-43c0-ae46-69c32998f654"
-            ]
-      }
+  "CMD": "GROUP",
+  "TYPE": "REMOVE_DEVICE",
+  "DATA": {
+    "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "DEVICES": [
+      "b717f8d8-6f18-43c0-ae46-69c32998f653",
+      "b717f8d8-6f18-43c0-ae46-69c32998f654"
+    ]
+  }
 }
 ```
 
@@ -175,13 +173,16 @@ Xóa 2 thiết bị khỏi nhóm
 
 ```json
 {
-      "CMD": "GROUP",
-      "TYPE": "REMOVE_DEVICE",
-      "DATA": {
-           "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "GROUP_UNICAST_ID": 49152,
-          "STATUS": "SUCCESS"
-      }
+  "CMD": "GROUP",
+  "TYPE": "REMOVE_DEVICE",
+  "DATA": {
+    "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "DEVICE_ID": [
+      "b717f8d8-6f18-43c0-ae46-69c32998f653",
+      "b717f8d8-6f18-43c0-ae46-69c32998f654"
+    ],
+    "STATUS": "SUCCESS"
+  }
 }
 ```
 
@@ -191,15 +192,15 @@ Xóa 2 thiết bị khỏi nhóm
 
 ```json
 {
-      "CMD": "GROUP",
-      "TYPE": "ADD_DEVICE",
-      "DATA": {
-           "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-            "DEVICES": [
-                "b717f8d8-6f18-43c0-ae46-69c32998f653",
-                "b717f8d8-6f18-43c0-ae46-69c32998f654"
-            ]
-      }
+  "CMD": "GROUP",
+  "TYPE": "ADD_DEVICE",
+  "DATA": {
+    "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "DEVICES": [
+      "b717f8d8-6f18-43c0-ae46-69c32998f653",
+      "b717f8d8-6f18-43c0-ae46-69c32998f654"
+    ]
+  }
 }
 ```
 
@@ -211,13 +212,13 @@ Thêm 2 device vào group
 
 ```json
 {
-     "CMD": "GROUP",
-     "TYPE": "CREATE",
-     "DATA": {
-          "GROUP_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
-          "GROUP_UNICAST_ID":49152,
-          "STATUS": "SUCCESS"
-      }
+  "CMD": "GROUP",
+  "TYPE": "CREATE",
+  "DATA": {
+    "GROUP_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "GROUP_UNICAST_ID": 49152,
+    "STATUS": "SUCCESS"
+  }
 }
 ```
 
@@ -227,12 +228,11 @@ Thêm 2 device vào group
 
 ```json
 {
-      "CMD": "GROUP",
-      "TYPE": "DELETE",
-      "DATA":
-      {
-             "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
-      }      
+  "CMD": "GROUP",
+  "TYPE": "DELETE",
+  "DATA": {
+    "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
+  }
 }
 ```
 
@@ -244,12 +244,16 @@ Xóa toàn bộ device ra khỏi group
 
 ```json
 {
-      "CMD": "GROUP",
-      "TYPE": "DELETE",
-      "DATA":
-      {
-             "GROUP_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
-      }      
+  "CMD": "GROUP",
+  "TYPE": "DELETE",
+  "DATA": {
+    "GROUP_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "DEVICE_ID": [
+      "b717f8d8-6f18-43c0-ae46-69c32998f653",
+      "b717f8d8-6f18-43c0-ae46-69c32998f654"
+    ],
+    "STATUS": "SUCCESS"
+  }
 }
 ```
 
@@ -261,7 +265,7 @@ Xóa toàn bộ device ra khỏi group
 
 ```json
 {
-     "CMD":"SCAN"
+  "CMD": "SCAN"
 }
 ```
 
@@ -273,16 +277,15 @@ Thêm device vào mạng
 
 ```json
 {
-   "CMD": "TYPE_DEVICE",
-   "DATA": 
-           {
-                   "DEVICE_ID": "b717f8d86f1843c0ae4669c32998f653", 
-                   "DEVICE_UNICAST_ID":2,
-                   "DEVICE_KEY": "b717f8d86f1843c0ae4669c32998f653",
-                   "NET_KEY": "b717f8d86f1843c0ae4669c32998f653",
-                   "APP_KEY": "b717f8d86f1843c0ae4669c32998f653",
-                   "CATEGORY_ID":   23002                
-           }   
+  "CMD": "TYPE_DEVICE",
+  "DATA": {
+    "DEVICE_ID": "b717f8d86f1843c0ae4669c32998f653",
+    "DEVICE_UNICAST_ID": 2,
+    "DEVICE_KEY": "b717f8d86f1843c0ae4669c32998f653",
+    "NET_KEY": "b717f8d86f1843c0ae4669c32998f653",
+    "APP_KEY": "b717f8d86f1843c0ae4669c32998f653",
+    "CATEGORY_ID": 23002
+  }
 }
 ```
 
@@ -292,7 +295,7 @@ Thêm device vào mạng
 
 ```json
 {
-     "CMD":"STOP"
+  "CMD": "STOP"
 }
 ```
 
@@ -304,7 +307,7 @@ Dừng quá trình đưa thiết bị vào mạng
 
 ```json
 {
-     "CMD":"STOP"
+  "CMD": "STOP"
 }
 ```
 
@@ -314,11 +317,11 @@ Dừng quá trình đưa thiết bị vào mạng
 
 ```json
 {
-   "CMD":"RESET_NODE",
-   "DATA":[
-      "b717f8d8-6f18-43c0-ae46-69c32998f653",
-      "b717f8d8-6f18-43c0-ae46-69c32998f654"
-   ]
+  "CMD": "RESET_NODE",
+  "DATA": [
+    "b717f8d8-6f18-43c0-ae46-69c32998f653",
+    "b717f8d8-6f18-43c0-ae46-69c32998f654"
+  ]
 }
 ```
 
@@ -330,8 +333,14 @@ Xóa device trong mạng. Từng device sẽ phản hồi về sau khi xóa kh�
 
 ```json
 {
-     "CMD":"RESET_NODE",
-     "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653"
+  "CMD": "RESET_NODE",
+  "DATA": {
+    "DEVICE_ID": [
+      "b717f8d8-6f18-43c0-ae46-69c32998f653",
+      "b717f8d8-6f18-43c0-ae46-69c32998f654"
+    ],
+    "STATUS": "SUCCESS"
+  }
 }
 ```
 
@@ -345,26 +354,24 @@ Xóa device trong mạng. Từng device sẽ phản hồi về sau khi xóa kh�
 
 ```json
 {
-      "CMD": "SCENE_FOR_SENSOR_LIGHT_PIR",
-      "TYPE": "CREATE",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "EVENT_TRIGGER_TYPE_ID":1,
-           "LIGHT_SENSOR": 
-                 {
-                          "LOW_LUX":200,
-                          "HIGHT_LUX":600,
-                          "COMPARISON_OPERATOR_ID":7,
-                          "DEVICE_ATTRIBUTE_ID": 12
-                  },
-           "PIR_SENSOR":
-                 {
-                          "PIR":1,
-                           "COMPARISON_OPERATOR_ID":1,
-                           "DEVICE_ATTRIBUTE_ID": 10
-                  }
-      }
+  "CMD": "SCENE_FOR_SENSOR_LIGHT_PIR",
+  "TYPE": "CREATE",
+  "DATA": {
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "EVENT_TRIGGER_TYPE_ID": 1,
+    "LIGHT_SENSOR": {
+      "LOW_LUX": 200,
+      "HIGHT_LUX": 600,
+      "COMPARISON_OPERATOR_ID": 7,
+      "DEVICE_ATTRIBUTE_ID": 12
+    },
+    "PIR_SENSOR": {
+      "PIR": 1,
+      "COMPARISON_OPERATOR_ID": 1,
+      "DEVICE_ATTRIBUTE_ID": 10
+    }
+  }
 }
 ```
 
@@ -377,24 +384,22 @@ Thêm cảnh có EVENT_TRIGGER_ID: "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2" vớ
 
 ```json
 {
-      "CMD": "SCENE_FOR_SENSOR_LIGHT_PIR",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "LIGHT_SENSOR": 
-                 {
-                          "LOW_LUX":200,
-                          "HIGHT_LUX":600,
-                          "COMPARISON_OPERATOR_ID":7,
-                          "DEVICE_ATTRIBUTE_ID": 12
-                  },
-           "PIR_SENSOR": 
-                 {
-                          "PIR":1,
-                           "COMPAIRISON_OPERATOR_ID":1,
-                            "DEVICE_ATTRIBUTE_ID": 12
-                  }
-      }
+  "CMD": "SCENE_FOR_SENSOR_LIGHT_PIR",
+  "DATA": {
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "LIGHT_SENSOR": {
+      "LOW_LUX": 200,
+      "HIGHT_LUX": 600,
+      "COMPARISON_OPERATOR_ID": 7,
+      "DEVICE_ATTRIBUTE_ID": 12
+    },
+    "PIR_SENSOR": {
+      "PIR": 1,
+      "COMPAIRISON_OPERATOR_ID": 1,
+      "DEVICE_ATTRIBUTE_ID": 12
+    }
+  }
 }
 ```
 
@@ -404,36 +409,20 @@ Thêm cảnh có EVENT_TRIGGER_ID: "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2" vớ
 
 ```json
 {
-      "CMD": "SCENE_FOR_REMOTE_AC",
-      "TYPE": "CREATE",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "COMPARISON_OPERATOR_ID":1,
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "DEVICE_ATTRIBUTE_ID":11,
-           "EVENT_TRIGGER_TYPE_ID":1,
-           "DEVICE_ATTRIBUTE_VALUE":
-           {
-                   "BUTTON_VALUE": "BUTTON_1",
-                   "MODE_VALUE": 1
-           } 
-      }
+  "CMD": "SCENE_FOR_REMOTE",
+  "TYPE": "CREATE",
+  "DATA": {
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "COMPARISON_OPERATOR_ID": 1,
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "DEVICE_ATTRIBUTE_ID": 11,
+    "EVENT_TRIGGER_TYPE_ID": 1,
+    "DEVICE_ATTRIBUTE_VALUE": {
+      "BUTTON_VALUE": "BUTTON_1",
+      "MODE_VALUE": 1
+    }
+  }
 }
-
-{
-      "CMD": "SCENE_FOR_REMOTE_DC",
-      "TYPE": "CREATE",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "COMPARISON_OPERATOR_ID":1,
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "DEVICE_ATTRIBUTE_ID":12,
-           "EVENT_TRIGGER_TYPE_ID":1,
-           "DEVICE_ATTRIBUTE_VALUE":
-           {
-                   "BUTTON_VALUE": "BUTTON_1",
-                   "MODE_VALUE": 1
-           } 
 ```
 
 2. Giải thích
@@ -444,32 +433,52 @@ Gán cảnh cho nút nhấn số  1 trên remote AC và DC, với "DEVICE_ID":"a
 
 ```json
 {
-      "CMD": "SCENE_FOR_REMOTE_AC",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "COMPARISON_OPERATOR_ID":1,
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "DEVICE_ATTRIBUTE_ID":11,
-           "DEVICE_ATTRIBUTE_VALUE":
-           {
-                   "BUTTON_VALUE": "BUTTON_1",
-                   "MODE_VALUE": 1
-           } 
-      }
+  "CMD": "SCENE_FOR_REMOTE",
+  "DATA": {
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "COMPARISON_OPERATOR_ID": 1,
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "DEVICE_ATTRIBUTE_ID": 11,
+    "DEVICE_ATTRIBUTE_VALUE": {
+      "BUTTON_VALUE": "BUTTON_1",
+      "MODE_VALUE": 1
+    }
+  }
 }
+```
+
+#### Gán cảnh cho màn hình
+
+1. Json mẫu
+```json
 {
-      "CMD": "SCENE_FOR_REMOTE_DC",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "COMPARISON_OPERATOR_ID":1,
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "DEVICE_ATTRIBUTE_ID":11,
-           "DEVICE_ATTRIBUTE_VALUE":
-           {
-                   "BUTTON_VALUE": "BUTTON_1",
-                   "MODE_VALUE": 1
-           } 
-      }
+  "CMD": "SCENE_FOR_SCREEN",
+  "TYPE": "CREATE",
+  "DATA": [
+    {
+      "EVENT_TRIGGER_ID": "abc-cde",
+      "EVENT_TRIGGER_NAME": "123",
+      "EVENT_TRIGGER_ICON_FOR_SCREEN": 1
+    },
+    {
+      "EVENT_TRIGGER_ID": "abc-cde",
+      "EVENT_TRIGGER_NAME": "123",
+      "EVENT_TRIGGER_ICON_FOR_SCREEN": 2
+    }
+  ]
+}
+```
+
+2. Giải thích:
+Đẩy cảnh cho màn hình hiển thị (EVENT_TRIGGER_NAME tối đa 10 ký tự)
+3. Json phản hồi
+```json
+{
+  "CMD": "SCENE_FOR_SCREEN",
+  "DATA": {
+    "EVENT_TRIGGER_ID": ["aa3549d4-5471-4d75-b0b2- b70fa5c10fb2","aa3549d4-5471-4d75-b0b2- b70fa5c10fb9"],
+    "STATUS":"SUCCESS"
+  }
 }
 ```
 
@@ -479,25 +488,23 @@ Gán cảnh cho nút nhấn số  1 trên remote AC và DC, với "DEVICE_ID":"a
 
 ```json
 {
-      "CMD": "SCENE_FOR_SENSOR_LIGHT_PIR",
-      "TYPE": "EDIT",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "LIGHT_SENSOR": 
-                 {
-                          "LOW_LUX":200,
-                          "HIGHT_LUX":600,
-                          "COMPARISON_OPERATOR_ID":7,
-                          "DEVICE_ATTRIBUTE_ID": 12
-                  },
-           "PIR_SENSOR": 
-                 {
-                          "PIR":1,
-                           "COMPARISON_OPERATOR_ID":1,
-                           "DEVICE_ATTRIBUTE_ID": 12
-                  }
-      }
+  "CMD": "SCENE_FOR_SENSOR_LIGHT_PIR",
+  "TYPE": "EDIT",
+  "DATA": {
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "LIGHT_SENSOR": {
+      "LOW_LUX": 200,
+      "HIGHT_LUX": 600,
+      "COMPARISON_OPERATOR_ID": 7,
+      "DEVICE_ATTRIBUTE_ID": 12
+    },
+    "PIR_SENSOR": {
+      "PIR": 1,
+      "COMPARISON_OPERATOR_ID": 1,
+      "DEVICE_ATTRIBUTE_ID": 12
+    }
+  }
 }
 ```
 
@@ -509,24 +516,71 @@ Sửa cảnh đã gán cho device có "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b7
 
 ```json
 {
-      "CMD": "SCENE_FOR_SENSOR_LIGHT_PIR",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "LIGHT_SENSOR": 
-                 {
-                          "LOW_LUX":200,
-                          "HIGHT_LUX":600,
-                          "COMPARISON_OPERATOR_ID":7,
-                          "DEVICE_ATTRIBUTE_ID": 12
-                  },
-           "PIR_SENSOR": 
-                 {
-                          "PIR":1,
-                           "COMPAIRISON_OPERATOR_ID":1,
-                           "DEVICE_ATTRIBUTE_ID": 12
-                  }
+  "CMD": "SCENE_FOR_SENSOR_LIGHT_PIR",
+  "DATA": {
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "LIGHT_SENSOR": {
+      "LOW_LUX": 200,
+      "HIGHT_LUX": 600,
+      "COMPARISON_OPERATOR_ID": 7,
+      "DEVICE_ATTRIBUTE_ID": 12
+    },
+    "PIR_SENSOR": {
+      "PIR": 1,
+      "COMPAIRISON_OPERATOR_ID": 1,
+      "DEVICE_ATTRIBUTE_ID": 12
+    }
+  }
+}
+```
+
+#### Sửa cảnh màn hình
+
+1. Json mẫu
+```json
+{
+  "CMD": "SCENE_FOR_SCREEN",
+  "TYPE": "EDIT",
+  "DATA": {
+    "EDIT": [
+      {
+        "EVENT_TRIGGER_ID": "abc-cde",
+        "EVENT_TRIGGER_NAME": "123",
+        "EVENT_TRIGGER_ICON_FOR_SCREEN": 1
+      },
+      {
+        "EVENT_TRIGGER_ID": "abc-cde",
+        "EVENT_TRIGGER_NAME": "123",
+        "EVENT_TRIGGER_ICON_FOR_SCREEN": 2
       }
+    ],
+    "ADD": [
+      {
+        "EVENT_TRIGGER_ID": "abc-cde",
+        "EVENT_TRIGGER_NAME": "123",
+        "EVENT_TRIGGER_ICON_FOR_SCREEN": 2
+      }
+    ],
+    "DEL": [
+      {
+        "EVENT_TRIGGER_ID": "abc-cde"
+      }
+    ]
+  }
+}
+```
+
+2. Giải thích:
+Sửa cảnh của màn hình (EVENT_TRIGGER_NAME tối đa 10 ký tự)
+3. Json phản hồi
+```json
+{
+  "CMD": "SCENE_FOR_SCREEN",
+  "DATA": {
+    "EVENT_TRIGGER_ID": ["aa3549d4-5471-4d75-b0b2- b70fa5c10fb2","aa3549d4-5471-4d75-b0b2- b70fa5c10fb9"],
+    "STATUS":"SUCCESS"
+  }
 }
 ```
 
@@ -536,31 +590,16 @@ Sửa cảnh đã gán cho device có "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b7
 
 ```json
 {
-      "CMD": "SCENE_FOR_REMOTE_AC",
-      "TYPE": "DELETE",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "DEVICE_ATTRIBUTE_VALUE":
-           {
-                   "BUTTON_VALUE": "BUTTON_1",
-                   "MODE_VALUE": 1
-           } 
-      }
-}
-
-{
-      "CMD": "SCENE_FOR_REMOTE_DC",
-      "TYPE": "DELETE",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "DEVICE_ATTRIBUTE_VALUE":
-           {
-                   "BUTTON_VALUE": "BUTTON_1",
-                   "MODE_VALUE": 1
-           } 
-      }
+  "CMD": "SCENE_FOR_REMOTE",
+  "TYPE": "DELETE",
+  "DATA": {
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "DEVICE_ATTRIBUTE_VALUE": {
+      "BUTTON_VALUE": "BUTTON_1",
+      "MODE_VALUE": 1
+    }
+  }
 }
 ```
 
@@ -572,29 +611,41 @@ Xóa cảnh đã gán cho nút nhấn của remote
 
 ```json
 {
-      "CMD": "SCENE_FOR_REMOTE_AC",
-      "TYPE": "DELETE",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "DEVICE_ATTRIBUTE_VALUE":
-           {
-                   "BUTTON_VALUE": "BUTTON_1",
-                   "MODE_VALUE": 1
-           } 
-      }
+  "CMD": "SCENE_FOR_REMOTE",
+  "TYPE": "DELETE",
+  "DATA": {
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
+    "DEVICE_ATTRIBUTE_VALUE": {
+      "BUTTON_VALUE": "BUTTON_1",
+      "MODE_VALUE": 1
+    }
+  }
 }
+```
 
+#### Xóa cảnh màn hình
+
+1. Json mẫu
+```json
 {
-      "CMD": "SCENE_FOR_REMOTE_DC",
-      "TYPE": "DELETE",
-      "DATA": {
-           "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
-           "DEVICE_ATTRIBUTE_VALUE":
-           {
-                   "BUTTON_VALUE": "BUTTON_1",
-                   "MODE_VALUE": 1
-           } 
-      }
+  "CMD": "SCENE_FOR_SCREEN",
+  "TYPE": "DELTE",
+  "DATA": {
+    "DEVICE_ID":"abc-cde"
+  }
+}
+```
+
+2. Giải thích:
+Sửa cảnh của màn hình (EVENT_TRIGGER_NAME tối đa 10 ký tự)
+3. Json phản hồi
+```json
+{
+  "CMD": "SCENE_FOR_SCREEN",
+  "DATA": {
+    "EVENT_TRIGGER_ID": ["aa3549d4-5471-4d75-b0b2- b70fa5c10fb2","aa3549d4-5471-4d75-b0b2- b70fa5c10fb9"],
+    "STATUS":"SUCCESS"
+  }
 }
 ```
 
@@ -648,6 +699,71 @@ Lưu ý: VD: tạo SCENE không có thời gian thì bỏ các trường START_A
   "DATA": {
     "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
     "SCENE_UNICAST_ID": 2,
+    "EVENT_TRIGGER_TYPE_ID": 1,
+    "STATUS": "SUCCESS"
+  }
+}
+```
+
+### Tạo 12 cảnh mặc định
+
+1. Json mẫu
+```json
+{
+  "CMD": "CREATE_DEFAULT_SCENES",
+  "DATA": [
+    {
+      "SCENE_ID": "abcde",
+      "DEVICES": [
+        {
+          "DEVICE_ID": "defghi",
+          "PROPERTIES": [
+            {
+              "ID": 0,
+              "VALUE": 1
+            },
+            {
+              "ID": 1,
+              "VALUE": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "SCENE_ID": "abcxyz",
+      "DEVICES": [
+        {
+          "DEVICE_ID": "defghi",
+          "PROPERTIES": [
+            {
+              "ID": 0,
+              "VALUE": 1
+            },
+            {
+              "ID": 1,
+              "VALUE": 100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+2. Giải thích:
+Tạo 12 cảnh mặc định cho phòng
+3. Json phản hồi (sau thời gian time out hc sẽ trả về cảnh nào vừa được cài đặt và trong cảnh đó có bao nhiêu thiết bị được cài thành công )
+
+```json
+{
+  "CMD": "EVENT_TRIGGER",
+  "TYPE": "CREATE",
+  "DATA": {
+    "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+    "SCENE_UNICAST_ID": 2,
+    "DEVICE_ID":["abc","cde"],
     "EVENT_TRIGGER_TYPE_ID": 1,
     "STATUS": "SUCCESS"
   }
