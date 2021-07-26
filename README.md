@@ -22,8 +22,7 @@ Chưa có bản tin cài đặt cảnh cho các thiết bị :Màn hình, socket
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Điều khiển một thiết bị có ID “b717f8d8-6f18-43c0-ae46-69c32998f653”, thiết lập giá trị cho thuộc tính có ID=0 thành 1
 
 3. Bản tin phản hồi
@@ -48,8 +47,7 @@ Giống bản tin gửi đi nhưng được gửi vào topic phản hồi
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Điều khiển nhóm có ID=b717f8d8-6f18-43c0-ae46-69c32998f653, thiết lập giá trị thuộc tính ID=0 thành 1 cho tất cả các thiết bị trong nhóm
 
 3. Json phản hồi
@@ -84,8 +82,7 @@ Là bản tin phản hồi của điều khiển device:
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Kích hoạt SCENE có ID=aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2
 
 3. Bản tin phản hồi
@@ -96,6 +93,75 @@ Kích hoạt SCENE có ID=aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2
   "DATA": {
     "EVENT_TRIGGER_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2",
     "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653"
+  }
+}
+```
+
+
+## Điều khiển điều hòa
+
+1. Json mẫu
+
+```json
+{
+  "CMD": "IR_CONTROL_AIR_CONDITION",
+  "TYPE": "CONTROL",
+  "DATA": {
+    "IR_DEVICE_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "PROPERTIES": {
+      "TEMP": 16
+    }
+  }
+}
+```
+
+2. Giải thích:
+Điều khiển điều hòa IR
+
+3. Bản tin phản hồi
+
+```json
+{
+  "CMD": "IR_CONTROL_AIR_CONDITION",
+  "TYPE": "CONTROL",
+  "DATA": {
+    "IR_DEVICE_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "STATUS": "SUCCESS"
+    }
+  }
+}
+```
+
+## Điều khiển quạt/TV
+
+1. Json mẫu
+```json
+{
+  "CMD": "IR_FAN_TV",
+  "TYPE": "CONTROL",
+  "DATA": {
+    "DEVICE_ID":"abc",
+    "IR_DEVICE_ID":"CDE",
+    "DEVICE_ATTRIBUTE_ID":34
+  }
+}
+```
+
+2. GIải thích:
+Điều khiển quạt/TV IR
+
+3. Json phản hồi
+
+```json
+{
+  "CMD": "IR_FAN_TV",
+  "TYPE": "CONTROL",
+  "DATA": {
+    "DEVICE_ID":"abc",
+    "IR_DEVICE_ID":"CDE",
+    "STATUS":"SUCCESS"
   }
 }
 ```
@@ -125,7 +191,6 @@ Kích hoạt SCENE có ID=aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2
 ```
 
 2. Giải thích:
-
 Tạo một nhóm mới gồm 2 thiết bị.
 Nếu không có thiết bị thì trường sẽ để trống: "DEVICE":[]
 
@@ -165,8 +230,7 @@ Nếu không có thiết bị thì trường sẽ để trống: "DEVICE":[]
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Xóa 2 thiết bị khỏi nhóm
 
 3. Json phản hồi
@@ -204,8 +268,7 @@ Xóa 2 thiết bị khỏi nhóm
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Thêm 2 device vào group
 
 3. Json phản hồi
@@ -236,8 +299,7 @@ Thêm 2 device vào group
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Xóa toàn bộ device ra khỏi group
 
 3. Json phản hồi
@@ -269,8 +331,7 @@ Xóa toàn bộ device ra khỏi group
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Thêm device vào mạng
 
 3. Json phản hồi
@@ -299,8 +360,7 @@ Thêm device vào mạng
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Dừng quá trình đưa thiết bị vào mạng
 
 3. Json phản hồi
@@ -325,8 +385,7 @@ Dừng quá trình đưa thiết bị vào mạng
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Xóa device trong mạng. Từng device sẽ phản hồi về sau khi xóa khỏi mạng BLE
 
 3. Json phản hồi
@@ -340,6 +399,76 @@ Xóa device trong mạng. Từng device sẽ phản hồi về sau khi xóa kh�
       "b717f8d8-6f18-43c0-ae46-69c32998f654"
     ],
     "STATUS": "SUCCESS"
+  }
+}
+```
+
+### IR_DEVICE
+
+#### Điều hòa
+
+1. Bản tin tìm chuẩn điều khiển
+
+```json
+{
+  "CMD": "IR_CONTROL_AIR_CONDITION",
+  "TYPE": "CHECK_CONTROL",
+  "DATA": {
+    "IR_DEVICE_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "STANDARD_ID": 12
+  }
+}
+```
+
+2. Phản hồi bản tin tìm chuẩn điều khiển
+
+```json
+{
+  "CMD": "IR_CONTROL_AIR_CONDITION_RESPONSE",
+  "DATA": {
+    "IR_DEVICE_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-b70fa5c10fb2",
+    "STANDARD_ID": 12,
+    "PROPERTIES": {
+      "TEMP": 16,
+      "MODE": 1,
+      "SWING": 4,
+      "FAN": 5
+    }
+  }
+}
+```
+
+#### Quạt/TV
+
+1. Bản tin học lệnh điều khiển (quạt/TV)
+
+```json
+{
+  "CMD": "IR_FAN_TV",
+  "TYPE": "LEARN",
+  "DATA": {
+    "DEVICE_ID":"abc",
+    "IR_DEVICE_ID":"CDE",
+    "CATEGORY_ID":12001,
+    "DEVICE_ATTRIBUTE_ID":34
+  }
+}
+```
+
+2. Bản tin phản hồi lệnh học (quạt/TV)
+
+```json
+{
+  "CMD": "IR_FAN_TV",
+  "TYPE": "LEARN",
+  "DATA": {
+    "DEVICE_ID":"abc",
+    "IR_DEVICE_ID":"CDE",
+    "IR_DEVICE_UNICAST_ID":50,
+    "DEVICE_ATTRIBUTE_ID":34,
+    "DEVICE_ATTRIBUTE_VALUE":100,
   }
 }
 ```
@@ -375,8 +504,7 @@ Xóa device trong mạng. Từng device sẽ phản hồi về sau khi xóa kh�
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Thêm cảnh có EVENT_TRIGGER_ID: "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2" với điều kiện ánh sáng và điều kiện chuyển động cho cảm biến có 
 "DEVICE_ID": "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
 
@@ -425,8 +553,7 @@ Thêm cảnh có EVENT_TRIGGER_ID: "aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2" vớ
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Gán cảnh cho nút nhấn số  1 trên remote AC và DC, với "DEVICE_ID":"aa3549d4-5471-4d75-b0b2-  b70fa5c10fb2"
 
 3. Json phản hồi
@@ -603,8 +730,7 @@ Sửa cảnh của màn hình (EVENT_TRIGGER_NAME tối đa 10 ký tự)
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Xóa cảnh đã gán cho nút nhấn của remote
 
 3. Json phản hồi
@@ -684,8 +810,7 @@ Sửa cảnh của màn hình (EVENT_TRIGGER_NAME tối đa 10 ký tự)
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 HC nhận được bản ghi thêm EvenTrigger sẽ lưu dữ liệu vào bảng EvenTrigger,kiểm tra trường EventTriggerTYPEID nếu bằng 1 (cảnh) thì sẽ gửi bản tin tạo cảnh xuống GateWay.
 
 Lưu ý: VD: tạo SCENE không có thời gian thì bỏ các trường START_AT, END_AT, tạo  SCENE không có DEVICE bỏ trường DEVICE,....
@@ -754,6 +879,7 @@ Lưu ý: VD: tạo SCENE không có thời gian thì bỏ các trường START_A
 
 2. Giải thích:
 Tạo 12 cảnh mặc định cho phòng
+
 3. Json phản hồi (sau thời gian time out hc sẽ trả về cảnh nào vừa được cài đặt và trong cảnh đó có bao nhiêu thiết bị được cài thành công )
 
 ```json
@@ -826,8 +952,7 @@ Tạo 12 cảnh mặc định cho phòng
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 HC nhận được bản tin sửa EVEN TRIGGER theo các thông số người dùng cài đặt (giống bản tin tạo event)nhưng thuộc tính "TYPE":"CREATE" được thay bằng "TYPE":"EDIT"
 
 3. Json phản hồi
@@ -860,8 +985,7 @@ HC nhận được bản tin sửa EVEN TRIGGER theo các thông số người d
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Xóa 1 EVEN TRIGGER với ID tương ứng
 
 3. Json phản hồi
@@ -890,8 +1014,7 @@ Xóa 1 EVEN TRIGGER với ID tương ứng
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Gửi bản tin yêu cầu báo cáo trạng thái hiện tại của các thiết bị
 
 3. Json phản hồi
@@ -1007,6 +1130,10 @@ Gửi bản tin yêu cầu báo cáo trạng thái hiện tại của các thi�
 
 Tạo rule với các thông số được cài đặt theo thông số người dùng lựa chọn
 *Lưu ý: VD: Nếu không có thời gian thì bỏ trường thời gian START_AT, END_AT
+"LOGICAL_OPERATOR_ID": -1 -> Rule kích hoạt theo thời gian
+"LOGICAL_OPERATOR_ID": 0  -> Rule kích hoạt theo Input OR
+"LOGICAL_OPERATOR_ID": 1  -> Rule kích hoạt theo Input AND
+"LOGICAL_OPERATOR_ID": 2  -> Rule kích hoạt theo count down
 
 3. Json phản hồi
 
@@ -1109,8 +1236,7 @@ Tạo rule với các thông số được cài đặt theo thông số người
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Giống bản tin tạo rule nhưng type là "EDIT" và các thông số  tất cả thông số của rule.
 
 3. Json phản hồi
@@ -1173,8 +1299,7 @@ Xóa rule đã tạo với ID tương ứng.
 }
 ```
 
-2. Giải thích
-
+2. Giải thích:
 Thay đổi trạng thái kích hoạt của rule
 
 3. Json phản hồi
