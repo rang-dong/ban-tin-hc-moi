@@ -1021,19 +1021,58 @@ Gửi bản tin yêu cầu báo cáo trạng thái hiện tại của các thi�
 
 ```json
 {
-  "CMD": "DEVICE_UPDATE",
-  "DATA": {
-    "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-    "ID": 0,
-    "VALUE": 1
-  }
+  "CMD": "DEVICE_UPDATE_PRO",
+  "DATA": [
+    {
+      "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+      "PROPERTIES": [
+        {
+          "ID": 0,
+          "VALUE": 1
+        },
+        {
+          "ID": 1,
+          "VALUE": 100
+        }
+      ]
+    },
+    {
+      "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb3",
+      "PROPERTIES": [
+        {
+          "ID": 0,
+          "VALUE": 1
+        }
+      ]
+    },
+    {
+      "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb4",
+      "PROPERTIES": [
+        {
+          "ID": 0,
+          "VALUE": 1
+        },
+        {
+          "ID": 2,
+          "VALUE": 0
+        }
+      ]
+    }
+  ]
 }
 
 {
-  "CMD": "DEVICE_UPDATE",
-  "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
-  "STATUS":"OFFLINE"
-  }
+  "CMD": "DEVICE_UPDATE_STATUS",
+  "DATA": [
+    {
+      "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb2",
+      "STATUS": "OFFLINE"
+    },
+    {
+      "DEVICE_ID": "aa3549d4-5471-4d75-b0b2- b70fa5c10fb3",
+      "STATUS": "OFFLINE"
+    }
+  ]
 }
 ```
 
@@ -1333,18 +1372,21 @@ Thay đổi trạng thái kích hoạt của rule
 }
 ```
 
-2. Bản tin phản hồi thiệt độ, độ ẩm, bụi mịn :2.5;10;1.0
+2. Bản tin phản hồi nhiệt độ, độ ẩm
 
 ```json
 {
-  "CMD": "PM_SENSOR",
+  "CMD": "TH_SENSOR",
   "DATA": {
     "DEVICE_ID": "b717f8d8-6f18-43c0-ae46-69c32998f653",
     "TEMPERATURE_VALUE": 30,
     "HUMIDITY_VALUE": 30
   }
 }
+```
 
+3. Bản tin phản hồi bụi mịn:PM2.5; PM10; PM1.0
+```json
 {
   "CMD": "PM_SENSOR",
   "DATA": {
@@ -1356,7 +1398,7 @@ Thay đổi trạng thái kích hoạt của rule
 }
 ```
 
-3. Bản tin phản hồi pin, lux, pir
+4. Bản tin phản hồi pin, lux, pir
 
 ```json
 {
@@ -1384,7 +1426,7 @@ Thay đổi trạng thái kích hoạt của rule
 }
 ```
 
-4. Bản tin phản hồi trạng thái nút nhấn
+5. Bản tin phản hồi trạng thái nút nhấn
 
 ```json
 {
@@ -1397,7 +1439,7 @@ Thay đổi trạng thái kích hoạt của rule
 }
 ```
 
-5. Bản tin phản hồi trạng thái cảm biến khói
+6. Bản tin phản hồi trạng thái cảm biến khói
 
 ```json
 {
@@ -1418,7 +1460,7 @@ Thay đổi trạng thái kích hoạt của rule
 }
 ```
 
-6. Bản tin phản hồi cảm biến cửa
+7. Bản tin phản hồi cảm biến cửa
 
 ```json
 {
